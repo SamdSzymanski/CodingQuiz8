@@ -1,0 +1,27 @@
+DFS(i,j):
+//Mark cell as visited
+grid[i][j] = ' marked'
+//check if we have reached destination
+if i == rows - 1 and j == cols - 1
+  return true
+
+// Explore all possible directions
+        for each direction (di, dj) from {(1, 0), (-1, 0), (0, 1), (0, -1)}:
+            new_i = i + di
+            new_j = j + dj
+            if isValid(new_i, new_j):
+                if DFS(new_i, new_j):
+                    return true
+        
+        // If no path found from this cell, backtrack
+        return false
+    
+    // Start DFS from the top-left corner
+    if DFS(0, 0):
+        return "YES" // Path found
+    else:
+        return "NO"  // No path found
+
+
+Time complexity: This is a linear time complexity, as this is a DFA function that explores every cell of a two dimensional array once.
+Per what we said in class, this implies that the time complexity will have a linear time complexity of O(|n| X |m|).
